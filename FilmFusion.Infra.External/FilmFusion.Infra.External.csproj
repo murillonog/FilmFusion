@@ -7,13 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="IMDbApiLib" Version="1.9.4" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
     <PackageReference Include="OmdbApiNet" Version="1.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\FilmFusion.Domain\FilmFusion.Domain.csproj" />
-    <ProjectReference Include="..\FilmFusion.Infra.External\FilmFusion.Infra.External.csproj" />
   </ItemGroup>
 
 </Project>

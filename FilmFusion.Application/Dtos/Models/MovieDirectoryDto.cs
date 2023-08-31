@@ -1,7 +1,10 @@
-﻿namespace FilmFusion.Domain.Entities
+﻿namespace FilmFusion.Application.Dtos.Models
 {
-    public class MovieDirectory : EntityBase
+    public class MovieDirectoryDto
     {
+
+        public Guid Id { get; set; }
+
         public string Title { get; set; }
         public string Year { get; set; }
         public string ImdbId { get; set; }
@@ -17,8 +20,8 @@
         public string? ImdbPath { get; set; }
         public string? OmdbPath { get; set; }
         public string? DetailsPath { get; set; }
+        public string? ErrorMessage { get; set; }
 
         public Guid EntertainmentId { get; set; }
-        public Entertainment Entertainment { get; set; }
     }
 }
