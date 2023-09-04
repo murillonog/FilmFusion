@@ -1,10 +1,7 @@
 ﻿namespace FilmFusion.Application.Dtos.Models
 {
-    public class MovieDirectoryDto
+    public class MovieDirectoryDto : BaseDto
     {
-
-        public Guid Id { get; set; }
-
         public string Title { get; set; }
         public string Year { get; set; }
         public string ImdbId { get; set; }
@@ -23,5 +20,25 @@
         public string? ErrorMessage { get; set; }
 
         public Guid EntertainmentId { get; set; }
+        public MovieDirectoryDto() { }
+
+        public MovieDirectoryDto(Guid id, MovieDirectoryDto movieDirectoryDto)
+        {
+            this.Id = Guid.NewGuid();
+            this.Title = movieDirectoryDto.Title;
+            this.Year = movieDirectoryDto.Year;
+            this.ImdbId = movieDirectoryDto.ImdbId;
+            this.IsWatched = movieDirectoryDto.IsWatched;
+            this.RootPath = movieDirectoryDto.RootPath;
+            this.MoviePath = movieDirectoryDto.MoviePath;
+            this.SubtitlePath = movieDirectoryDto.SubtitlePath;
+            this.Size = movieDirectoryDto.Size;
+            this.Extension = movieDirectoryDto.Extension;
+            this.ImdbPath = movieDirectoryDto.ImdbPath;
+            this.OmdbPath = movieDirectoryDto.OmdbPath;
+            this.DetailsPath = movieDirectoryDto.DetailsPath;
+            this.ErrorMessage = movieDirectoryDto.ErrorMessage;
+            this.EntertainmentId = id;
+        }
     }
 }

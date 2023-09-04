@@ -10,6 +10,7 @@ namespace FilmFusion.Domain.Repositories
         Task<IEnumerable<TEntity>> GetAllAsync();
         Task<IEnumerable<TEntity>> GetAsync(int limit);
         Task<TEntity?> GetByIdAsync(Guid id);
+        Task<TEntity?> Exists(Expression<Func<TEntity, bool>> predicate);
         Task<int> SaveChangesAsync();
         Task<TEntity> UpdateAsync(TEntity entity);
         Task<TEntity?> GetByIdAsync(Guid id, params Expression<Func<TEntity, object>>[] includes);

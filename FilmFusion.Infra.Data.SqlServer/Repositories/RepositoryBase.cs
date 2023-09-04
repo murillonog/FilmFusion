@@ -38,6 +38,9 @@ namespace FilmFusion.Infra.Data.SqlServer.Repositories
         public async Task<TEntity?> GetByIdAsync(Guid id)
             => await _dbSet.FindAsync(id);
 
+        public async Task<TEntity?> Exists(Expression<Func<TEntity, bool>> predicate)
+            => await _dbSet.FirstOrDefaultAsync(predicate);
+
         public async Task<TEntity?> GetByIdAsync(Guid id, params Expression<Func<TEntity, object>>[] includes)
         {
             var model = await _dbSet.FindAsync(id);

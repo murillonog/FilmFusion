@@ -1,4 +1,5 @@
 ﻿using FilmFusion.Application.Interfaces;
+using FilmFusion.Application.Mappings;
 using FilmFusion.Application.Services;
 using FilmFusion.Business;
 using FilmFusion.Domain.Repositories;
@@ -20,12 +21,14 @@ namespace FilmFusion.Infra.Ioc
             services.AddDbContext<ApplicationSqlServerDbContext>(opt =>
                 opt.UseSqlServer(configuration.GetConnectionString("DefaultConnectionString")));
 
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());            
+            services.AddAutoMapper(typeof(MappingProfiles));
 
             services.AddScoped<IDirectoryService, DirectoryService>();
+            services.AddScoped<IDatabaseService, DatabaseService>();
 
             services.AddScoped<IReadMovieInfosByPathUseCase, ReadMovieInfosByPathUseCase>();
             services.AddScoped<IGetMovieInfoByDirectoryUseCase, GetMovieInfoByDirectoryUseCase>();
+            services.AddScoped<IInsertMovieInformationUseCase, InsertMovieInformationUseCase>();
 
             services.AddScoped<IImdbApiService, ImdbApiService>();
             services.AddScoped<IOmdbApiService, OmdbApiService>();
