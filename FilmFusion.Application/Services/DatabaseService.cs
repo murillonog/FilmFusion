@@ -32,7 +32,8 @@ namespace FilmFusion.Application.Services
 
             if (Directory.Exists(moviePathRequest.Path))
             {
-                foreach (var movie in await _readMovieInfosByPathUseCase.GetMoviesInfoByPath(moviePathRequest.Path))
+                var movies = await _readMovieInfosByPathUseCase.GetMoviesInfoByPathNotInDb(moviePathRequest.Path);
+                foreach (var movie in movies)
                 {
                     var entertainmentDto = new EntertainmentDto(_mapper.Map<MovieDirectoryDto>(movie));
                     if (await _insertMovieInformationUseCase.InsertMovieSqlServer(_mapper.Map<Entertainment>(entertainmentDto)))

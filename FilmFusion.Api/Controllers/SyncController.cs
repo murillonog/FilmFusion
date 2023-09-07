@@ -8,10 +8,10 @@ namespace FilmFusion.Api.Controllers
     [ApiController]
     public class SyncController : ControllerBase
     {
-        private readonly ILogger<DirectoriesController> _logger;
+        private readonly ILogger<SyncController> _logger;
         private readonly IDatabaseService _databaseService;
 
-        public SyncController(ILogger<DirectoriesController> logger, 
+        public SyncController(ILogger<SyncController> logger, 
             IDatabaseService databaseService)
         {
             _logger = logger;

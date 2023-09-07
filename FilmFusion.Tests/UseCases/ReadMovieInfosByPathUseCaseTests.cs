@@ -1,5 +1,6 @@
 ﻿using FilmFusion.Business;
 using FilmFusion.Domain.Entities;
+using FilmFusion.Domain.Repositories;
 using FilmFusion.Tests.UseCases.Builder;
 using Microsoft.Extensions.Logging;
 using Moq;
@@ -11,10 +12,12 @@ namespace FilmFusion.Tests.UseCases
     {
         private readonly Mock<ILogger<ReadMovieInfosByPathUseCase>> _logger;
         private readonly ReadMovieInfosByPathUseCase _useCase;
+        private readonly Mock<IRepositoryBase<Entertainment>> _repository;
         public ReadMovieInfosByPathUseCaseTests()
         {
             _logger = new Mock<ILogger<ReadMovieInfosByPathUseCase>>();
-            _useCase = new ReadMovieInfosByPathUseCase(_logger.Object);
+            _repository = new Mock<IRepositoryBase<Entertainment>>();
+            _useCase = new ReadMovieInfosByPathUseCase(_logger.Object, _repository.Object);
         }
 
         [Fact]
